@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="graph1">
+    <file>graph3.png</file>
+    <file>graph2.png</file>
+    <file>graph.png</file>
+  </qresource>
+</RCC>
