@@ -6,7 +6,8 @@ from PyQt5.QtCore import *
 import pandas as pd
 from preprocessing import generate_graph
 
-from windows import Ui_MainWindow, Ui_Dialog,checkbox_Dialog
+from windows import Ui_MainWindow, Ui_Dialog, checkbox_Dialog, \
+    newFacultyDialog, propertyDialog, analyzeDialog, facultyMemDialog
 #from checkbox_2 import checkbox_Dialog
 
 class MyDialog(QDialog):
@@ -18,7 +19,43 @@ class MyDialog(QDialog):
         self.hide()
         self.myWin = MyWindow()
         self.myWin.show()
+class newFalDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = newFacultyDialog()
+        self.ui.setupUi(self)
+    def myWindow(self):
+        self.hide()
+        self.myWin = MyWindow()
+        self.myWin.show()
+class FalMemDialog(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = facultyMemDialog()
+        self.ui.setupUi(self)
+    def myWindow(self):
+        self.hide()
+        self.myWin = MyWindow()
+        self.myWin.show()
 
+class propertyDia(QDialog):
+    def __init__(self, i):
+        super().__init__()
+        self.ui = propertyDialog()
+        self.ui.setupUi(self, i)
+    def myWindow(self):
+        self.hide()
+        self.myWin = MyWindow()
+        self.myWin.show()
+class AnalyzeDia(QDialog):
+    def __init__(self, i):
+        super().__init__()
+        self.ui = analyzeDialog()
+        self.ui.setupUi(self, i)
+    def myWindow(self):
+        self.hide()
+        self.myWin = MyWindow()
+        self.myWin.show()
 class CheckBox(QDialog):
     def __init__(self):
         super().__init__()
@@ -28,6 +65,10 @@ class CheckBox(QDialog):
         self.hide()
         self.myWin = MyWindow()
         self.myWin.show()
+    def falcultyMem(self):
+        self.hide()
+        self.new = FalMemDialog()
+        self.new.show()
 class MyWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -49,6 +90,32 @@ class MyWindow(QMainWindow):
         self.hide()
         self.myDialog = MyDialog()
         self.myDialog.show()
+
+    def newFacultyD(self):
+        self.hide()
+        self.myDialog2 = newFalDialog()
+        self.myDialog2.show()
+    def facultyMemD(self):
+        self.hide()
+        self.myDialog2 = FalMemDialog()
+        self.myDialog2.show()
+
+    def propertyD(self, i):
+        if i==0:
+            pass
+        else:
+            self.hide()
+            self.myDialog3 = propertyDia(i)
+            self.myDialog3.show()
+
+    def analyzeD(self, i):
+        if i==0:
+            pass
+        else:
+            self.hide()
+            self.myDialog4 = AnalyzeDia(i)
+            self.myDialog4.show()
+
     def checkbox(self):
         self.hide()
         self.cb = CheckBox()
